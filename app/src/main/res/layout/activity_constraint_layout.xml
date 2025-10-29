@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="12dp"
+    tools:context=".ConstraintLayoutActivity">
+
+    <TextView
+        android:id="@+id/firstName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sunil"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="Prasai"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintLeft_toRightOf="@+id/firstName"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/fishIV"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/fish"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintLeft_toLeftOf="@+id/fishIV"
+        app:layout_constraintRight_toRightOf="@+id/fishIV"
+        app:layout_constraintTop_toBottomOf="@+id/fishIV" />
+
+    <ImageView
+        android:id="@+id/notificationIV"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="84dp"
+        android:src="@drawable/notifications"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="32dp"
+        android:minHeight="32dp"
+        android:text="2"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:translationX="-12dp"
+        android:translationY="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/notificationIV"
+        app:layout_constraintLeft_toRightOf="@+id/notificationIV"
+        android:background="@drawable/circle"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

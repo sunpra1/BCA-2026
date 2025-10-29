@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">BCA-2026</string>
+    <string name="hello">Hello</string>
+    <string name="my_name">Sunil Prasai</string>
+    <string name="dummy_text">"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."</string>
+    <array name="grade_items">
+        <item>Grade One</item>
+        <item>Grade Two</item>
+        <item>Grade Three</item>
+        <item>Grade Four</item>
+        <item>Grade Five</item>
+        <item>Grade Six</item>
+        <item>Grade Seven</item>
+        <item>Grade Eight</item>
+        <item>Grade Nine</item>
+        <item>Grade Ten</item>
+    </array>
+</resources>

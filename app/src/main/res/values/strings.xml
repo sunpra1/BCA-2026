@@ -15,4 +15,6 @@
         <item>Grade Nine</item>
         <item>Grade Ten</item>
     </array>
+    <string name="message">Hello from XML.</string>
+    <string name="details_format">Student Detail: \n %s</string>
 </resources>

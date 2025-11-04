@@ -20,6 +20,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 public class InputFieldActivity extends AppCompatActivity {
 
     EditText firstNameEt;
@@ -40,9 +42,9 @@ public class InputFieldActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        setContentView(R.layout.activity_input_field);
         //region Not Needed in exam
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_input_field);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -63,10 +65,59 @@ public class InputFieldActivity extends AppCompatActivity {
         isDifferentlyAbledSwitch = findViewById(R.id.isDifferentlyAbledSwitch);
         messageTv = findViewById(R.id.messageTv);
 
+        gradeSpinner.setAdapter();
+
         submitBtn.setOnClickListener(
                 (View view) -> {
-
                     Log.d("BTN CLICK", "Submit Btn Clicked");
+
+                    String firstName = firstNameEt.getText().toString();
+                    String lastName = lastNameEt.getText().toString();
+                    String email = emailEt.getText().toString();
+
+                    int gradePosition = gradeSpinner.getSelectedItemPosition();
+                    String[] allGrades = getResources().getStringArray(R.array.grade_items);
+                    String grade = allGrades[gradePosition];
+
+                    int selectedGenderId = genderGroup.getCheckedRadioButtonId();
+                    String gender;
+                    if (selectedGenderId == R.id.maleRb) {
+                        gender = "Male";
+                    } else if (selectedGenderId == R.id.femaleRb) {
+                        gender = "Female";
+                    } else {
+                        gender = "Others";
+                    }
+
+                    ArrayList<String> optionalSubjects = new ArrayList<>();
+                    if (accountCb.isChecked()) {
+                        optionalSubjects.add("Accounts");
+                    }
+                    if (optMathCb.isChecked()) {
+                        optionalSubjects.add("Opt math");
+                    }
+                    if (economicsCb.isChecked()) {
+                        optionalSubjects.add("Economics");
+                    }
+                    if (computerCb.isChecked()) {
+                        optionalSubjects.add("Computer");
+                    }
+
+                    boolean isDifferentlyAble = isDifferentlyAbledSwitch.isChecked();
+
+                    String details = "";
+
+                    details += "Name: " + firstName + " " + lastName;
+                    details += "\n" + "Email: " + email;
+                    details += "\n" + "Grade: " + grade;
+                    details += "\n" + "Gender: " + gender;
+                    details += "\n" + "Optional Subjects: " + optionalSubjects;
+                    details += "\n" + "Is Differently Able: " + isDifferentlyAble;
+
+//                    messageTv.setText(details);
+
+                    messageTv.setText(getString(R.string.details_format, details));
+
                 }
         );
 
@@ -113,7 +164,7 @@ public class InputFieldActivity extends AppCompatActivity {
 
         isDifferentlyAbledSwitch.setOnCheckedChangeListener(
                 (@NonNull CompoundButton compoundButton, boolean isChecked) -> {
-                    messageTv.setText("You have " + (isChecked ? "Checked" : "Unchecked") + "is differently able.");
+                    messageTv.setText("You have " + (isChecked ? "Checked" : "Unchecked") + " differently able.");
                 }
         );
 

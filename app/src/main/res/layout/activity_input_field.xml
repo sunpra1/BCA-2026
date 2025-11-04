@@ -86,8 +86,7 @@
         android:minHeight="48dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/labelGrade"
-        android:entries="@array/grade_items"/>
+        app:layout_constraintTop_toBottomOf="@id/labelGrade"/>
 
     <TextView
         android:id="@+id/labelGender"

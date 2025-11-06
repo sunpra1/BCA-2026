@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -65,7 +66,13 @@ public class InputFieldActivity extends AppCompatActivity {
         isDifferentlyAbledSwitch = findViewById(R.id.isDifferentlyAbledSwitch);
         messageTv = findViewById(R.id.messageTv);
 
-        gradeSpinner.setAdapter();
+        String[] allGrades = getResources().getStringArray(R.array.grade_items);
+        ArrayAdapter<String> genderAdapter = new ArrayAdapter<>(
+                this,
+                android.R.layout.simple_spinner_dropdown_item,
+                allGrades
+        );
+        gradeSpinner.setAdapter(genderAdapter);
 
         submitBtn.setOnClickListener(
                 (View view) -> {
@@ -76,7 +83,6 @@ public class InputFieldActivity extends AppCompatActivity {
                     String email = emailEt.getText().toString();
 
                     int gradePosition = gradeSpinner.getSelectedItemPosition();
-                    String[] allGrades = getResources().getStringArray(R.array.grade_items);
                     String grade = allGrades[gradePosition];
 
                     int selectedGenderId = genderGroup.getCheckedRadioButtonId();

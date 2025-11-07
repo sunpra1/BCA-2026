@@ -76,6 +76,7 @@ public class InputFieldActivity extends AppCompatActivity {
 
         submitBtn.setOnClickListener(
                 (View view) -> {
+
                     Log.d("BTN CLICK", "Submit Btn Clicked");
 
                     String firstName = firstNameEt.getText().toString();
